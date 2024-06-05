@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def mvnHome = tool 'M3' // Assumes Maven is installed and configured in Jenkins
+                    def mvnHome = tool 'maven' // Assumes Maven is installed and configured in Jenkins
                     sh "'${mvnHome}/bin/mvn' clean install"
                 }
             }
@@ -14,7 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    def mvnHome = tool 'M3'
+                    def mvnHome = tool 'maven'
                     sh "'${mvnHome}/bin/mvn' test"
                 }
             }
